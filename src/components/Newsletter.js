@@ -8,30 +8,33 @@ const Newsletter = () => {
 
     useEffect(() => {
         const cachedImageUrl = localStorage.getItem('randomImageUrl');
-        
-        if (cachedImageUrl) {
-            setImageUrl(cachedImageUrl);
-        } else {
+
+        if (!cachedImageUrl) {
             async function fetchRandomImage() {
-                const response = await axios.get(
-                    'https://api.unsplash.com/photos/random',
-                    {
-                        params: {
-                            client_id: 'RfZSbn_rdvEPrnhslq8HRwmCwyayZg3DBo_LDcXXaTM',
-                        },
-                    }
-                );
-                
-                const randomImageUrl = response.data.urls.regular;
-                
-                localStorage.setItem('randomImageUrl', randomImageUrl);
-    
-                setImageUrl(randomImageUrl);
+                try {
+                    const response = await axios.get(
+                        'https://api.unsplash.com/photos/random',
+                        {
+                            params: {
+                                client_id: 'RfZSbn_rdvEPrnhslq8HRwmCwyayZg3DBo_LDcXXaTM',
+                            },
+                        }
+                    );
+
+                    const randomImageUrl = response.data.urls.regular;
+
+                    setImageUrl(randomImageUrl);
+                    
+                    localStorage.setItem('randomImageUrl', randomImageUrl);
+                } catch (error) {
+                    console.error('Error fetching random image:', error);
+                }
             }
 
             fetchRandomImage();
+        } else {
+            setImageUrl(cachedImageUrl);
         }
-
     }, []);
 
     return(

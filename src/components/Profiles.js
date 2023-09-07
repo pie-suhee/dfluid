@@ -50,7 +50,7 @@ const Profiles = () => {
                             </div>
                             <div className='card-link'>
                                 <Link to={`*`} className='exo2'>
-                                    Learn more
+                                    LEARN MORE
                                 </Link>
                             </div>
                         </div>
