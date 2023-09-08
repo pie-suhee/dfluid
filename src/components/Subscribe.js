@@ -9,7 +9,7 @@ const Subscribe = () => {
 
     const handleChange = (e) => {
         const inputEmail = e.target.value;
-        const isValid = /^[A-Za-z0-9]([-_.]?[A-Za-z0-9])*@[A-Za-z0-9]([-_.]?[A-Za-z0-9])*\.[A-Za-z]{2}\.kr$/.test(inputEmail) || /^[A-Za-z0-9]([-_.]?[A-Za-z0-9])*@[A-Za-z0-9]([-_.]?[A-Za-z0-9])*\.[A-Za-z]{3}$/.test(inputEmail);
+        const isValid = /^[A-Za-z0-9]([-_.]?[A-Za-z0-9])*@[A-Za-z0-9]([-_.]?[A-Za-z0-9])*\.co\.kr$/.test(inputEmail) || /^[A-Za-z0-9]([-_.]?[A-Za-z0-9])*@[A-Za-z0-9]([-_.]?[A-Za-z0-9])*\.[A-Za-z]{3}$/.test(inputEmail);
         setEmail(inputEmail);
         setIsValidEmail(isValid);
     };
